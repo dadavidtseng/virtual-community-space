@@ -1,10 +1,10 @@
-# WEB103 Project 3 - *Name of App Here*
+# WEB103 Project 3 - *UnityGrid Plaza*
 
-Submitted by: **Your name here**
+Submitted by: **Yu-Wei Tseng**
 
-About this web app: **App description here**
+About this web app: **UnityGrid Plaza is a virtual community space for discovering music events across four Dallas-area venues. Users can explore an interactive map to select a location and view its upcoming (and past) events, or browse all events on a dedicated Events page with location filtering and date sorting. Each event displays a live countdown timer.**
 
-Time spent: **X** hours
+Time spent: **10** hours
 
 ## Required Features
 
@@ -12,47 +12,49 @@ The following **required** functionality is completed:
 
 <!-- Make sure to check off completed functionality below -->
 
-- [ ] **The web app uses React to display data from the API**
-- [ ] **The web app is connected to a PostgreSQL database, with an appropriately structured Events table**
-  - [ ]  **NOTE: Your walkthrough added to the README must include a view of your Render dashboard demonstrating that your Postgres database is available**
-  - [ ]  **NOTE: Your walkthrough added to the README must include a demonstration of your table contents. Use the psql command 'SELECT * FROM tablename;' to display your table contents.**
-- [ ] **The web app displays a title.**
-- [ ] **Website includes a visual interface that allows users to select a location they would like to view.**
-  - [ ] *Note: A non-visual list of links to different locations is insufficient.* 
-- [ ] **Each location has a detail page with its own unique URL.**
-- [ ] **Clicking on a location navigates to its corresponding detail page and displays list of all events from the `events` table associated with that location.**
+- [x] **The web app uses React to display data from the API**
+- [x] **The web app is connected to a PostgreSQL database, with an appropriately structured Events table**
+  - [x]  **NOTE: Your walkthrough added to the README must include a view of your Render dashboard demonstrating that your Postgres database is available**
+  - [x]  **NOTE: Your walkthrough added to the README must include a demonstration of your table contents. Use the psql command 'SELECT * FROM tablename;' to display your table contents.**
+- [x] **The web app displays a title.**
+- [x] **Website includes a visual interface that allows users to select a location they would like to view.**
+  - [x] *Note: A non-visual list of links to different locations is insufficient.* 
+- [x] **Each location has a detail page with its own unique URL.**
+- [x] **Clicking on a location navigates to its corresponding detail page and displays list of all events from the `events` table associated with that location.**
 
 The following **optional** features are implemented:
 
-- [ ] An additional page shows all possible events
-  - [ ] Users can sort *or* filter events by location.
-- [ ] Events display a countdown showing the time remaining before that event
-  - [ ] Events appear with different formatting when the event has passed (ex. negative time, indication the event has passed, crossed out, etc.).
+- [x] An additional page shows all possible events
+  - [x] Users can sort *or* filter events by location.
+- [x] Events display a countdown showing the time remaining before that event
+  - [x] Events appear with different formatting when the event has passed (ex. negative time, indication the event has passed, crossed out, etc.).
 
 The following **additional** features are implemented:
 
-- [ ] List anything else that you added to improve the site's functionality!
+- [x] Interactive SVG map on the home page with hover effects revealing venue names
+- [x] Live countdown timer that updates every 60 seconds
+- [x] Date sorting (earliest/latest first) on the Events page
 
 ## Video Walkthrough
 
 Here's a walkthrough of implemented required features:
 
-<img src='http://i.imgur.com/link/to/your/gif/file.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='assets/walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
-<!-- Replace this with whatever GIF tool you used! -->
-GIF created with ...  GIF tool here
-<!-- Recommended tools:
-[Kap](https://getkap.co/) for macOS
-[ScreenToGif](https://www.screentogif.com/) for Windows
-[peek](https://github.com/phw/peek) for Linux. -->
+Here's a walkthrough of the Render dashboard and database contents:
+
+<img src='assets/walkthrough-postgresql.gif' title='Database Walkthrough' width='' alt='Database Walkthrough' />
 
 ## Notes
 
-Describe any challenges encountered while building the app or any additional context you'd like to add.
+Challenges encountered:
+- Race condition in database seeding — `forEach` with callback-based queries didn't await inserts, causing foreign key violations. Fixed by switching to `for...of` with `await`.
+- Several external image URLs became unavailable over time, requiring replacements with stable CDN sources.
+- Route parameter mismatch between Express route definitions (`:id`) and controller reads (`req.params.locationId`) caused silent failures.
 
 ## License
 
-Copyright [yyyy] [name of copyright owner]
+Copyright 2026 Yu-Wei Tseng
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
 
