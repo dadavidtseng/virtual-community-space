@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import '../css/Event.css'
+import EventsAPI from "../services/EventsAPI"
 
 const Event = (props) => {
 
@@ -16,7 +17,7 @@ const Event = (props) => {
             catch (error) {
                 throw error
             }
-        }) ()
+        })()
     }, [])
 
     useEffect(() => {
@@ -28,7 +29,7 @@ const Event = (props) => {
             catch (error) {
                 throw error
             }
-        }) ()
+        })()
     }, [event])
 
     useEffect(() => {
@@ -41,7 +42,7 @@ const Event = (props) => {
             catch (error) {
                 throw error
             }
-        }) ()
+        })()
     }, [event])
 
     return (
