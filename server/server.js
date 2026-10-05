@@ -1,19 +1,36 @@
+/**
+ * ---------------------------------------------------------------------------------------------------
+ * server.js
+ * 
+ * @module server
+ * ---------------------------------------------------------------------------------------------------
+ */
+
+/**
+ * ---------------------------------------------------------------------------------------------------
+ */
 import express from 'express'
 import path from 'path'
 import favicon from 'serve-favicon'
 import dotenv from 'dotenv'
-
-// import the router from your routes file
-
+import eventsRouter from './routes/events.js'
+import locationsRouter from './routes/locations.js'
 
 dotenv.config()
 
 const PORT = process.env.PORT || 3000
-
 const app = express()
 
+/**
+ * ---------------------------------------------------------------------------------------------------
+ */
 app.use(express.json())
+app.use('/api/events', eventsRouter)
+app.use('/api/locations', locationsRouter)
 
+/**
+ * ---------------------------------------------------------------------------------------------------
+ */
 if (process.env.NODE_ENV === 'development') {
     app.use(favicon(path.resolve('../', 'client', 'public', 'party.png')))
 }
