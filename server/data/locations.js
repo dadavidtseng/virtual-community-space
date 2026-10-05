@@ -32,7 +32,7 @@ const locationData = [
         city: 'Irving',
         state: 'TX',
         zip: '75039',
-        image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Toyota_Music_Factory_October_2019.jpg/1200px-Toyota_Music_Factory_October_2019.jpg'
+        image: 'https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=600'
     },
     {
         name: 'American Airlines Center',

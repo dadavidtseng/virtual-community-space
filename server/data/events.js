@@ -64,14 +64,14 @@ const eventData = [
         date: 'Jun 05, 2023',
         time: 1900,
         location: 3,
-        image: 'https://static.stereogum.com/uploads/2021/05/The-Green-Album-1620834349-scaled.jpeg'
+        image: 'https://images.unsplash.com/photo-1501612780327-45045538702b?w=400'
     },
     {
         title: 'Sublime',
         date: 'Jul 22, 2023',
         time: 1700,
         location: 3,
-        image: 'https://merchbar.imgix.net/product/105/6519/4001755627602/ODAyiKAK85-1.png?quality=60&auto=compress,format&w=3840'
+        image: 'https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?w=400'
     },
     {
         title: 'Sad Summer Fest',
@@ -99,14 +99,14 @@ const eventData = [
         date: 'Jun 10, 2023',
         time: 1900,
         location: 4,
-        image: 'https://static.stereogum.com/uploads/2015/09/duranduran.jpg'
+        image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=400'
     },
     {
         title: 'Madonna',
         date: 'Sep 18, 2023',
         time: 2030,
         location: 4,
-        image: 'https://yt3.googleusercontent.com/T8Up4YxiN4wGfkyI6J8OyRbQNWiXWv8Lb-I-CjxE9Hi7DyFbcIShXW3i2TqqmXtECcaqlDXk1A=s900-c-k-c0x00ffffff-no-rj'
+        image: 'https://images.unsplash.com/photo-1514525253161-7a46d19cd819?w=400'
     },
     {
         title: 'Depeche Mode',
