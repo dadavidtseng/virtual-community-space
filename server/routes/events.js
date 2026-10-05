@@ -27,4 +27,4 @@ router.get('/:id', EventsController.getEventById)
 /**
  * ---------------------------------------------------------------------------------------------------
  */
-export default eventsRouter
+export default router

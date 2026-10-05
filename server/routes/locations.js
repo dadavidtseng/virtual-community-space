@@ -26,4 +26,4 @@ router.get('/:id', LocationsController.getLocationById)
 /**
  * ---------------------------------------------------------------------------------------------------
  */
-export default locationsRouter
+export default router

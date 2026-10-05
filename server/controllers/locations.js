@@ -35,7 +35,7 @@ const getLocationById = async (req, res) => {
         FROM locations
         WHERE id=$1
         `
-        const locationId = req.params.locationId
+        const locationId = req.params.id
         const results = await pool.query(selectQuery, [locationId])
         res.status(200).json(results.rows[0])
     }
