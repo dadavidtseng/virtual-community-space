@@ -6,6 +6,9 @@
  * ---------------------------------------------------------------------------------------------------
  */
 
+import dotenv from 'dotenv'
+dotenv.config()
+
 import { pool } from './database.js'
 import eventData from '../data/events.js'
 import locationData from '../data/locations.js'
@@ -73,29 +76,17 @@ const createEventTable = async () => {
 const seedLocationTable = async () => {
     await createLocationTable()
 
-    locationData.forEach((location) => {
-        const insertQuery = {
-            text: "INSERT INTO locations (name, address, city, state, zip, image) VALUES ($1, $2, $3, $4, $5, $6)"
-        }
+    for (const location of locationData) {
+        const insertQuery = 'INSERT INTO locations (name, address, city, state, zip, image) VALUES ($1, $2, $3, $4, $5, $6)'
+        const values = [location.name, location.address, location.city, location.state, location.zip, location.image]
 
-        const values = [
-            location.name,
-            location.address,
-            location.city,
-            location.state,
-            location.zip,
-            location.image
-        ]
-
-        pool.query(insertQuery, values, (err, res) => {
-            if (err) {
-                console.error('⚠️ error inserting location', err)
-                return
-            }
+        try {
+            await pool.query(insertQuery, values)
             console.log(`✅ ${location.name} added successfully`)
-
-        })
-    })
+        } catch (err) {
+            console.error('⚠️ error inserting location', err)
+        }
+    }
 }
 
 /**
@@ -104,27 +95,17 @@ const seedLocationTable = async () => {
 const seedEventTable = async () => {
     await createEventTable()
 
-    eventData.forEach((event) => {
-        const insertQuery = {
-            text: 'INSERT INTO events (title, date, time, location, image) VALUES ($1, $2, $3, $4, $5)'
-        }
+    for (const event of eventData) {
+        const insertQuery = 'INSERT INTO events (title, date, time, location, image) VALUES ($1, $2, $3, $4, $5)'
+        const values = [event.title, event.date, event.time, event.location, event.image]
 
-        const values = [
-            event.title,
-            event.date,
-            event.time,
-            event.location,
-            event.image
-        ]
-
-        pool.query(insertQuery, values, (err, res) => {
-            if (err) {
-                console.error('⚠️ error inserting event', err)
-                return
-            }
+        try {
+            await pool.query(insertQuery, values)
             console.log(`✅ ${event.title} added successfully`)
-        })
-    })
+        } catch (err) {
+            console.error('⚠️ error inserting event', err)
+        }
+    }
 }
 
 /**
